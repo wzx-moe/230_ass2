@@ -5,6 +5,8 @@ const swaggerDocument = require('../docs/swagger.json');
 
 /* GET home page. */
 router.use('/', swaggerUI.serve);
-router.get('/', swaggerUI.setup(swaggerDocument));
+router.get('/', swaggerUI.setup(swaggerDocument, {
+    swaggerOptions: {defaultModelsExpandDepth: -1}, // Hide schema section
+}));
 
 module.exports = router;
