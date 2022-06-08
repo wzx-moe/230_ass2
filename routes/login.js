@@ -4,6 +4,7 @@ const asyncHandler = require("express-async-handler");
 var router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const createError = require("http-errors");
 const secretKey = "SUPER SECRET KEY DO NOT STEAL";
 
 /* GET home page. */
@@ -37,6 +38,7 @@ router.post('/', asyncHandler(async function (req, res, next) {
         })
         .catch((Error) => {
             console.log(Error);
+            next(createError(500 , Error));
         })
 }));
 

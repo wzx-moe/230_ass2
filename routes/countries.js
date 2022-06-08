@@ -1,6 +1,7 @@
 var express = require('express');
 const {json} = require("express");
 const asyncHandler = require("express-async-handler");
+const createError = require("http-errors");
 var router = express.Router();
 
 /* GET home page. */
@@ -23,6 +24,7 @@ router.get('/', asyncHandler(async function (req, res, next) {
         })
         .catch((Error) => {
             console.log(Error);
+            next(createError(500 , Error));
         })
 }));
 
