@@ -7,7 +7,6 @@ const cors = require('cors');
 const knex = require('./knexfile');
 
 
-
 var countriesRouter = require('./routes/countries');
 var volcanoesRouter = require('./routes/volcanoes');
 var volcanoRouter = require('./routes/volcano');

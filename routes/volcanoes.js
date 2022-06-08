@@ -42,7 +42,7 @@ router.get('', asyncHandler(async function (req, res, next) {
                         delete row[populatedWithin];
                         return row;
                     }
-                }).filter(d=>d)
+                }).filter(d => d)
             })
             .then((rows) => {
                 res.status(200).json(rows);

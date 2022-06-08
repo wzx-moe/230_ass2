@@ -3,7 +3,7 @@ const {json} = require("express");
 const asyncHandler = require("express-async-handler");
 const authorize = require("../authorize");
 var router = express.Router();
-const dateFormat =/^(\d{4})-(\d{2})-(\d{2})$/;
+const dateFormat = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 /* GET home page. */
 router.get('/:email/profile', authorize, asyncHandler(async function (req, res, next) {
@@ -94,8 +94,7 @@ router.put('/:email/profile', authorize, asyncHandler(async function (req, res, 
         });
         return;
     }
-    if (!dateFormat.test(req.body.dob) || (("0" + (new Date(req.body.dob).getDate().toString())).slice(-2)!==req.body.dob.substring(req.body.dob.length-2)))
-    {
+    if (!dateFormat.test(req.body.dob) || (("0" + (new Date(req.body.dob).getDate().toString())).slice(-2) !== req.body.dob.substring(req.body.dob.length - 2))) {
         res.status(400).json({
             "error": true,
             "message": "Invalid input: dob must be a real date in format YYYY-MM-DD."
