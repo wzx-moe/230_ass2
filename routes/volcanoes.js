@@ -33,7 +33,7 @@ router.get('', asyncHandler(async function (req, res, next) {
             })
             .catch((Error) => {
                 console.log(Error);
-                next(createError(500 , Error));
+                next(createError(500, Error));
             })
     } else {
         await req.db.select("id", "name", "country", "region", "subregion", "population_" + req.query.populatedWithin).from('data').where("country", req.query.country)
@@ -51,7 +51,7 @@ router.get('', asyncHandler(async function (req, res, next) {
             })
             .catch((Error) => {
                 console.log(Error);
-                next(createError(500 , Error));
+                next(createError(500, Error));
             })
     }
 

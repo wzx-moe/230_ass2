@@ -9,11 +9,11 @@ var debug = require('debug')('230ass2:server');
 var https = require('https');
 
 const fs = require('fs');
-const privateKey = fs.readFileSync('/etc/ssl/private/node-selfsigned.key','utf8');
-const certificate = fs.readFileSync('/etc/ssl/certs/node-selfsigned.crt','utf8');
+const privateKey = fs.readFileSync('/etc/ssl/private/node-selfsigned.key', 'utf8');
+const certificate = fs.readFileSync('/etc/ssl/certs/node-selfsigned.crt', 'utf8');
 const credentials = {
- key: privateKey,
- cert: certificate
+    key: privateKey,
+    cert: certificate
 };
 
 /**
@@ -27,7 +27,7 @@ app.set('port', port);
  * Create HTTPS server.
  */
 
-var server = https.createServer(credentials,app);
+var server = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.

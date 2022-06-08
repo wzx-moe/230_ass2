@@ -47,7 +47,7 @@ router.get('/:email/profile', authorize, asyncHandler(async function (req, res, 
         })
         .catch((Error) => {
             console.log(Error);
-            next(createError(500 , Error));
+            next(createError(500, Error));
         })
 }));
 
@@ -141,7 +141,7 @@ router.put('/:email/profile', authorize, asyncHandler(async function (req, res, 
         })
         .catch((Error) => {
             console.log(Error);
-            next(createError(500 , Error));
+            next(createError(500, Error));
         })
 }));
 
