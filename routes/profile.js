@@ -1,7 +1,7 @@
 var express = require('express');
 const {json} = require("express");
 const asyncHandler = require("express-async-handler");
-const authorize = require("../authorize");
+const authorize = require("../middleware/authorize");
 const createError = require("http-errors");
 var router = express.Router();
 const dateFormat = /^(\d{4})-(\d{2})-(\d{2})$/;
@@ -46,7 +46,7 @@ router.get('/:email/profile', authorize, asyncHandler(async function (req, res, 
             res.status(200).json(users[0]);
         })
         .catch((Error) => {
-            console.log(Error);
+            console.debug(Error);
             next(createError(500, Error));
         })
 }));
@@ -140,7 +140,7 @@ router.put('/:email/profile', authorize, asyncHandler(async function (req, res, 
                 })
         })
         .catch((Error) => {
-            console.log(Error);
+            console.debug(Error);
             next(createError(500, Error));
         })
 }));

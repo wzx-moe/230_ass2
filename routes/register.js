@@ -19,7 +19,7 @@ router.post('/', asyncHandler(async function (req, res, next) {
             res.status(201).json({"message": "User created"});
         })
         .catch((Error) => {
-            console.log(Error);
+            console.debug(Error);
             res.status(409).json({
                 "error": true,
                 "message": "User already exists"

@@ -1,7 +1,7 @@
 var express = require('express');
 const {json} = require("express");
 const asyncHandler = require("express-async-handler");
-const authorize = require("../authorize");
+const authorize = require("../middleware/authorize");
 const createError = require("http-errors");
 var router = express.Router();
 
@@ -34,7 +34,7 @@ router.get('/:id', authorize, asyncHandler(async function (req, res, next) {
             res.status(200).json(countries[0]);
         })
         .catch((Error) => {
-            console.log(Error);
+            console.debug(Error);
             next(createError(500, Error));
         })
 }));

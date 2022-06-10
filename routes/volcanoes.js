@@ -32,7 +32,7 @@ router.get('', asyncHandler(async function (req, res, next) {
                 res.status(200).json(rows);
             })
             .catch((Error) => {
-                console.log(Error);
+                console.debug(Error);
                 next(createError(500, Error));
             })
     } else {
@@ -50,7 +50,7 @@ router.get('', asyncHandler(async function (req, res, next) {
                 res.status(200).json(rows);
             })
             .catch((Error) => {
-                console.log(Error);
+                console.debug(Error);
                 next(createError(500, Error));
             })
     }
